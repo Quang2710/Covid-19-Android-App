@@ -8,6 +8,11 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"></LinearLayout>
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="fill_parent"
@@ -238,7 +243,7 @@
         app:srcCompat="@drawable/ic_testbanner" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_statis"
         android:layout_width="290dp"
         android:layout_height="47dp"
         android:layout_marginTop="40dp"
