@@ -55,30 +55,24 @@ public class LoginActivity extends AppCompatActivity {
         user = txt_user.getText().toString();
         pass = txt_password.getText().toString();
 
-        if(TextUtils.isEmpty(user))
+        if(TextUtils.isEmpty(user) || TextUtils.isEmpty(pass))
         {
-            Toast.makeText(this, "Username not empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Input not empty", Toast.LENGTH_SHORT).show();
         }
-        if(TextUtils.isEmpty(pass))
-        {
-            Toast.makeText(this, "Password not empty", Toast.LENGTH_SHORT).show();
+        else {
+            //call and check login firebase
+            mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "Login successfull", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left); // Animation between activity
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Login faild!!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
-        //call and check login firebase
-        mAuth.signInWithEmailAndPassword(user,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
-                    Toast.makeText(getApplicationContext(), "Login successfull", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left); // Animation between activity
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Login faild!!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
     }
 }

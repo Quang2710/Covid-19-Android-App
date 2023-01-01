@@ -46,16 +46,12 @@ public class RegisterActivity extends AppCompatActivity {
         pass = txt_password.getText().toString();
         repass = txt_re_password.getText().toString();
 
-        if (TextUtils.isEmpty(user)) {
-            Toast.makeText(this, "Username not empty", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(user) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(repass))
+        {
+            Toast.makeText(this, "Input not empty", Toast.LENGTH_SHORT).show();
         }
-        if (TextUtils.isEmpty(pass)) {
-            Toast.makeText(this, "Password not empty", Toast.LENGTH_SHORT).show();
-        }
-        if (TextUtils.isEmpty(repass)) {
-            Toast.makeText(this, "Confirm password not empty", Toast.LENGTH_SHORT).show();
-        }
-        if (pass.equals(repass) && pass.length() > 7) {
+
+        else if (pass.equals(repass) && pass.length() > 7) {
             mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
