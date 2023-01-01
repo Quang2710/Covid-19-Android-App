@@ -237,6 +237,24 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:srcCompat="@drawable/ic_testbanner" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="290dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/send_sms_button"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+        android:fontFamily="@font/graphikmedium"
+        android:paddingStart="30dp"
+        android:text="See Statistics"
+        android:textAlignment="textStart"
+        android:textColor="#F6F6F6"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        android:paddingRight="10dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
