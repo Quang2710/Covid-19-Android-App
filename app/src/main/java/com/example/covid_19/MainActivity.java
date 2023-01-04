@@ -1,5 +1,7 @@
 package com.example.covid_19;
 
+import static com.example.covid_19.R.id.btn_send;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -7,30 +9,37 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CALL = 1;
-    Button btn_call,btn_sms,btn_statis;
+    private static final int SEND_SMS = 1;
+    Button btn_call,btn_sms,btn_statis,btn_send;
     Spinner spinner;
     ImageView flags;
+    Dialog mDialog;
+    EditText txtfeeling;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +49,14 @@ public class MainActivity extends AppCompatActivity {
         flags = findViewById(R.id.flag);
         spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
 
+        mDialog = new Dialog(this);
+        mDialog.setContentView(R.layout.sms_popup);
+
         btn_statis = findViewById(R.id.btn_statis);
         btn_call = findViewById(R.id.btn_call);
         btn_sms = findViewById(R.id.btn_sms);
+
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -81,7 +95,55 @@ public class MainActivity extends AppCompatActivity {
                 Call();
             }
         });
+        btn_sms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSMS();
+            }
+        });
+
     }
+
+    private void openSMS() {
+        mDialog.setContentView(R.layout.sms_popup);
+        mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        mDialog.show();
+
+        txtfeeling = mDialog.findViewById((R.id.txt_feeling));
+        btn_send = mDialog.findViewById(R.id.btn_send);
+
+        btn_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(MainActivity.this,Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
+                    String phone = "0857102032";
+                    String message = txtfeeling.getText().toString();
+
+                    if(!message.isEmpty()){
+                        // Khởi tạo trình quản lý SMS
+                        SmsManager smsManager = SmsManager.getDefault();
+
+                        smsManager.sendTextMessage(phone,null,message,null,null);
+
+                        Toast.makeText(MainActivity.this, "SMS send successfully", Toast.LENGTH_SHORT).show();
+
+                        mDialog.dismiss();
+                    }
+                    else
+                    {
+                        //Toast.makeText(this, "Prevention not empty", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Prevention not empty", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.SEND_SMS}, 100);
+                }
+            }
+        });
+
+    }
+
 
     private void setLocal(String langCode){
         Locale locale = new Locale(langCode);
