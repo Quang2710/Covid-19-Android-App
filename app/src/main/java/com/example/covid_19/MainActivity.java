@@ -11,21 +11,44 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CALL = 1;
     Button btn_call,btn_sms,btn_statis;
-
+    Spinner spinner;
+    ImageView flags;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        spinner = findViewById(R.id.spinner);
+        flags = findViewById(R.id.flag);
+        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
+
         btn_statis = findViewById(R.id.btn_statis);
         btn_call = findViewById(R.id.btn_call);
         btn_sms = findViewById(R.id.btn_sms);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                flags.setImageResource(CountryData.countryFlag[spinner.getSelectedItemPosition()]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         btn_statis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
