@@ -61,7 +61,8 @@
             android:layout_width="55dp"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <TextView
@@ -82,7 +83,7 @@
         android:layout_width="363dp"
         android:layout_height="78dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/graphiksemibold"
         android:text="@string/text_2"
         android:textColor="#FFFFFF"

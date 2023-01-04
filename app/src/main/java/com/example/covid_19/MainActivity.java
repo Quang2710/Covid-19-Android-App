@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -34,41 +35,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        loadLocale();
         spinner = findViewById(R.id.spinner);
         flags = findViewById(R.id.flag);
         spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
-        spinner.setSelection(0);
 
         btn_statis = findViewById(R.id.btn_statis);
         btn_call = findViewById(R.id.btn_call);
         btn_sms = findViewById(R.id.btn_sms);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 flags.setImageResource(CountryData.countryFlag[spinner.getSelectedItemPosition()]);
                 String selectLang = parent.getItemAtPosition(position).toString();
 
-                while (true) {
-                    if (selectLang.equals("ENG")) {
-                        setLocal(MainActivity.this, "en");
-                        //finish();
-                        //  startActivity(getIntent());
-                        recreate();
-                        return;
-                    } else if (selectLang.equals("VIE")) {
-                        setLocal(MainActivity.this, "vi");
-//                    finish();
-//                    startActivity(getIntent());
-                        recreate();
-                        return;
-                    }
+                if(selectLang.equals("ENG")){
+                   // setLocal("values-en");
+                   // recreate();
+                }
+                else if (selectLang.equals("VIE"))
+                {
+                   // setLocal("values-vi");
+                   // recreate();
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                setLocal("en");
             }
         });
 
@@ -87,13 +83,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setLocal(Activity activity,String langCode){
+    private void setLocal(String langCode){
         Locale locale = new Locale(langCode);
-        locale.setDefault(locale);
-        Resources resources = activity.getResources();
-        Configuration config = resources.getConfiguration();
-        config.setLocale(locale);
-        resources.updateConfiguration(config,resources.getDisplayMetrics());
+        Locale.setDefault(locale);
+        //Resources resources = activity.getResources();
+        Configuration config = new Configuration();
+        config.locale = locale;
+       // resources.updateConfiguration(config,resources.getDisplayMetrics());
+        getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = getSharedPreferences("Setting", MODE_PRIVATE).edit();
+        editor.putString("My_Lang",langCode);
+        editor.apply();
+    }
+    private void loadLocale() {
+        SharedPreferences prefs = getSharedPreferences("Setting", Activity.MODE_PRIVATE);
+        String language = prefs.getString("My_lang","");
+        setLocal(language);
     }
     private void Call()
     {
