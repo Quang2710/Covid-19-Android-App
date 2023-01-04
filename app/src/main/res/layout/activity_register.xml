@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Signing up has never been so easy"
-            android:textColor="#000000"
+            android:textColor="#595959"
             android:textSize="16sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

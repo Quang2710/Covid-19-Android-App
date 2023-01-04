@@ -19,7 +19,7 @@
 
             <TextView
                 android:id="@+id/textView14"
-                android:layout_width="151dp"
+                android:layout_width="162dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/graphikregular"
@@ -30,15 +30,17 @@
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="-10dp"
                 android:fontFamily="@font/graphikregular"
                 android:text="Reset"
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/textView14"
-                app:layout_constraintStart_toEndOf="@+id/textView14" />
+                app:layout_constraintStart_toEndOf="@+id/textView14"
+                app:layout_constraintTop_toTopOf="@+id/textView14" />
 
             <TextView
                 android:id="@+id/textView10"

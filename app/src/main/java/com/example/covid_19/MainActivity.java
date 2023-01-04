@@ -6,8 +6,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +20,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         spinner = findViewById(R.id.spinner);
         flags = findViewById(R.id.flag);
         spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
+        spinner.setSelection(0);
 
         btn_statis = findViewById(R.id.btn_statis);
         btn_call = findViewById(R.id.btn_call);
@@ -41,6 +47,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 flags.setImageResource(CountryData.countryFlag[spinner.getSelectedItemPosition()]);
+                String selectLang = parent.getItemAtPosition(position).toString();
+
+                while (true) {
+                    if (selectLang.equals("ENG")) {
+                        setLocal(MainActivity.this, "en");
+                        //finish();
+                        //  startActivity(getIntent());
+                        recreate();
+                        return;
+                    } else if (selectLang.equals("VIE")) {
+                        setLocal(MainActivity.this, "vi");
+//                    finish();
+//                    startActivity(getIntent());
+                        recreate();
+                        return;
+                    }
+                }
             }
 
             @Override
@@ -62,6 +85,15 @@ public class MainActivity extends AppCompatActivity {
                 Call();
             }
         });
+    }
+
+    private void setLocal(Activity activity,String langCode){
+        Locale locale = new Locale(langCode);
+        locale.setDefault(locale);
+        Resources resources = activity.getResources();
+        Configuration config = resources.getConfiguration();
+        config.setLocale(locale);
+        resources.updateConfiguration(config,resources.getDisplayMetrics());
     }
     private void Call()
     {

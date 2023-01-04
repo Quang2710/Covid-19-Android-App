@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_1">Bạn có cảm thấy như bị bệnh không?</string>
+    <string name="text_2">Nếu bạn cảm thấy bị bệnh với bất kỳ triệu chứng nào của covid-19, vui lòng liên hệ cho chúng tôi ngay lập tức để được trợ giúp</string>
+    <string name="txtcall">GỌI NGAY</string>
+    <string name="txtsms">GỬI SMS</string>
+    <string name="text_3">Phòng ngừa</string>
+    <string name="text_4">Đeo khẩu trang nơi công cộng</string>
+    <string name="text_5">Giữ khoảng cách với mọi người</string>
+    <string name="text_6">Rửa tay thường xuyên</string>
+    <string name="txtstatis">Xem Thống Kê</string>
+</resources>

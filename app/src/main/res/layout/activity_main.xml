@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"></LinearLayout>
@@ -37,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <LinearLayout
-        android:layout_width="105dp"
+        android:layout_width="95dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/spinner_bg"
@@ -57,7 +58,7 @@
 
         <Spinner
             android:id="@+id/spinner"
-            android:layout_width="65dp"
+            android:layout_width="55dp"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
@@ -70,7 +71,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/graphiksemibold"
-        android:text="Are you feeling sick?"
+        android:text="@string/text_1"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,12 +79,12 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="354dp"
-        android:layout_height="47dp"
+        android:layout_width="363dp"
+        android:layout_height="78dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/graphiksemibold"
-        android:text="If you feel sick with any of covid-19 symptoms please call or SMS us immediately foor help"
+        android:text="@string/text_2"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +101,7 @@
         android:drawablePadding="8dp"
         android:fontFamily="sans-serif-black"
         android:paddingLeft="10dp"
-        android:text="SEND SMS"
+        android:text="@string/txtsms"
         android:textAlignment="viewStart"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
@@ -120,7 +121,7 @@
         android:drawablePadding="8dp"
         android:fontFamily="sans-serif-black"
         android:paddingLeft="10dp"
-        android:text="CALL NOW"
+        android:text="@string/txtcall"
         android:textAlignment="viewStart"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
@@ -157,7 +158,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/graphiksemibold"
-        android:text="Prevention"
+        android:text="@string/text_3"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -200,7 +201,7 @@
         android:layout_height="63dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/graphikregular"
-        android:text="Đeo khẩu trang nơi công cộng"
+        android:text="@string/text_4"
         android:textAlignment="center"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
@@ -213,7 +214,7 @@
         android:layout_height="63dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/graphikregular"
-        android:text="Giữ khoảng cách với mọi người"
+        android:text="@string/text_5"
         android:textAlignment="center"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"
@@ -227,7 +228,7 @@
         android:layout_height="63dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/graphikregular"
-        android:text="Rửa tay thường xuyên"
+        android:text="@string/text_6"
         android:textAlignment="center"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
@@ -247,15 +248,15 @@
 
     <Button
         android:id="@+id/btn_statis"
-        android:layout_width="290dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="319dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/send_sms_button"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
         android:fontFamily="@font/graphikmedium"
         android:paddingStart="30dp"
         android:paddingRight="10dp"
-        android:text="See Statistics"
+        android:text="@string/txtstatis"
         android:textAlignment="textStart"
         android:textColor="#F6F6F6"
         android:textStyle="bold"

@@ -13,7 +13,7 @@
         android:id="@+id/relativeLayout2"
         android:layout_width="368dp"
         android:layout_height="75dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:background="@color/background"
         android:rotation="-13"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,19 +26,18 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/doctor" />
 
 
-
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/graphikregular"
         android:text="Get Started"
         android:textColor="#6A6666"
@@ -50,7 +49,7 @@
         android:id="@+id/textView9"
         android:layout_width="294dp"
         android:layout_height="162dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/graphikmedium"
         android:text="The evolution of the covid-19 epidemic is very complicated, let us keep you updated"
         android:textColor="#000000"
