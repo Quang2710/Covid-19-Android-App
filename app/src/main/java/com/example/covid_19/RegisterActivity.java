@@ -51,7 +51,11 @@ public class RegisterActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Input not empty", Toast.LENGTH_SHORT).show();
         }
-        else if (pass.equals(repass) && pass.length() > 7) {
+        if (user.matches(emailPattern)==false)
+        {
+            Toast.makeText(getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
+        }
+        if (pass.equals(repass) && pass.length() > 7) {
             mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -67,14 +71,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
         else {
             Toast.makeText(getApplicationContext(), "Password > 8 letter and password = confirm password", Toast.LENGTH_SHORT).show();
-        }
-        if (user.matches(emailPattern))
-        {
-            Toast.makeText(getApplicationContext(),"Valid email address",Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
         }
     }
 }
