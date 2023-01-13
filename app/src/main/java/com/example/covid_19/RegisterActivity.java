@@ -41,17 +41,21 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void register() {
-        String user, pass, repass;
+        String user, pass, repass,email;
         user = txt_user.getText().toString();
         pass = txt_password.getText().toString();
         repass = txt_re_password.getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
         if (TextUtils.isEmpty(user) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(repass))
         {
             Toast.makeText(this, "Input not empty", Toast.LENGTH_SHORT).show();
         }
-
-        else if (pass.equals(repass) && pass.length() > 7) {
+        if (user.matches(emailPattern)==false)
+        {
+            Toast.makeText(getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
+        }
+        if (pass.equals(repass) && pass.length() > 7) {
             mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
