@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +24,7 @@ public class StatisticsActivity extends AppCompatActivity {
     TextView affected, dead, recovered, active, serious;
     Button btn_global, btn_local;
     DatabaseReference reff;
+    PhotoView photoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,8 @@ public class StatisticsActivity extends AppCompatActivity {
                 styleLocalBtn();
             }
         });
-
+        photoView = (PhotoView) findViewById(R.id.photo_view);
+        photoView.setImageResource(R.drawable.map);
     }
 
     public void showDataGlobal() {

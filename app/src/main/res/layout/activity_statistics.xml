@@ -42,16 +42,24 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="373dp"
-                        android:layout_height="145dp"
+                    <com.github.chrisbanes.photoview.PhotoView
+                        android:id="@+id/photo_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/map" />
+                        app:srcCompat="@drawable/map"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView6"-->
+<!--                        android:layout_width="373dp"-->
+<!--                        android:layout_height="145dp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:srcCompat="@drawable/map" />-->
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
