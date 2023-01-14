@@ -132,19 +132,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_register" />
 
-            <Button
-                android:id="@+id/btn_reset"
+<!--            <Button-->
+<!--                android:id="@+id/btn_reset"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="-25dp"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:fontFamily="@font/graphiksemibold"-->
+<!--                android:text="reset"-->
+<!--                android:textSize="14dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/textView14"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/textView14"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/textView14"-->
+<!--                app:layout_constraintVertical_bias="0.434" />-->
+
+            <TextView
+                android:id="@+id/txt_forgot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="-25dp"
+                android:layout_marginStart="12dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/graphiksemibold"
                 android:text="reset"
-                android:textSize="14dp"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView14"
                 app:layout_constraintStart_toEndOf="@+id/textView14"
                 app:layout_constraintTop_toTopOf="@+id/textView14"
-                app:layout_constraintVertical_bias="0.434" />
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
