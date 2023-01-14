@@ -37,6 +37,8 @@ public class StatisticsActivity extends AppCompatActivity {
         serious = findViewById((R.id.serious));
         btn_global = findViewById(R.id.btn_global);
         btn_local = findViewById(R.id.btn_local);
+        photoView = (PhotoView) findViewById(R.id.photo_view);
+
         showDataGlobal();
         styleGlobalBtn();
         btn_global.setOnClickListener(new View.OnClickListener() {
@@ -53,8 +55,6 @@ public class StatisticsActivity extends AppCompatActivity {
                 styleLocalBtn();
             }
         });
-        photoView = (PhotoView) findViewById(R.id.photo_view);
-        photoView.setImageResource(R.drawable.map);
     }
 
     public void showDataGlobal() {
@@ -112,6 +112,8 @@ public class StatisticsActivity extends AppCompatActivity {
         btn_global.setTextColor(Color.rgb(255, 255, 255));
         btn_local.setBackgroundResource(R.drawable.change_local_global);
         btn_local.setTextColor(Color.rgb(0, 0, 0));
+        photoView.setImageResource(R.drawable.map);
+
     }
 
     public void styleLocalBtn() {
@@ -119,6 +121,8 @@ public class StatisticsActivity extends AppCompatActivity {
         btn_local.setTextColor(Color.rgb(255, 255, 255));
         btn_global.setBackgroundResource(R.drawable.change_local_global);
         btn_global.setTextColor(Color.rgb(0, 0, 0));
+        photoView.setImageResource(R.drawable.covid_map_local);
+
     }
 
 }
