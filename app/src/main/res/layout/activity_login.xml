@@ -29,20 +29,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/txt_password" />
 
             <TextView
-                android:id="@+id/textView15"
-                android:layout_width="50dp"
-                android:layout_height="23dp"
-                android:layout_marginStart="-10dp"
-                android:fontFamily="@font/graphikregular"
-                android:text="Reset"
-                android:textColor="#000000"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/textView14"
-                app:layout_constraintStart_toEndOf="@+id/textView14"
-                app:layout_constraintTop_toTopOf="@+id/textView14" />
-
-            <TextView
                 android:id="@+id/textView10"
                 android:layout_width="87dp"
                 android:layout_height="52dp"
@@ -98,14 +84,14 @@
                 android:id="@+id/btn_login"
                 android:layout_width="271dp"
                 android:layout_height="63dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/login_button"
                 android:text="login"
                 android:textColor="#FFFEFE"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -145,6 +131,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_register" />
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-25dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/graphiksemibold"
+                android:text="reset"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView14"
+                app:layout_constraintStart_toEndOf="@+id/textView14"
+                app:layout_constraintTop_toTopOf="@+id/textView14"
+                app:layout_constraintVertical_bias="0.434" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
