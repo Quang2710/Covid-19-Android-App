@@ -20,9 +20,9 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText txt_user,txt_password;
-    private Button btn_login,btn_forgot;
+    private Button btn_login;
     private FirebaseAuth mAuth;
-    private TextView txt_register;
+    private TextView txt_register,txt_forgot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         txt_user = findViewById(R.id.txt_user);
         txt_password = findViewById(R.id.txt_password);
         txt_register = findViewById(R.id.txt_register);
-        btn_forgot = findViewById(R.id.btn_reset);
+        txt_forgot = findViewById(R.id.txt_forgot);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
-        btn_forgot.setOnClickListener(new View.OnClickListener() {
+        txt_forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
